@@ -1,0 +1,156 @@
+
+header {
+  .header-wrap {
+    @include flexbox;
+    @include justify-content(space-between);
+    @include align-items(center);
+    padding: 25px;
+    border-bottom: 1px solid $gray;
+    animation: 1s fadeIn;
+    //@media screen and (max-width: 350px) {
+    //  @include flex-direction(column);
+    //}
+    .left {
+      @include flexbox;
+      //@media screen and (max-width: 350px) {
+      //  margin-bottom: 5px;
+      //}
+      .logo {
+        img {
+          width: 290px;
+          @media screen and (max-width: 700px) {
+            width: 220px;
+          }
+          @media screen and (max-width: 580px) {
+            width: 160px;
+          }
+          @media screen and (max-width: 400px) {
+            width: 120px;
+          }
+        }
+      }
+      .search-container {
+        margin-left: 50px;
+        margin-bottom: 0;
+        margin-right: 20px;
+        width: 540px;
+        @media screen and (max-width: 1100px) {
+          width: 350px;
+        }
+        @media screen and (max-width: 900px) {
+          width: 250px;
+          margin-left: 30px;
+        }
+      }
+    }
+    .right {
+      @include flexbox;
+      @include justify-content(space-between);
+      @include align-items(center);
+      .mobile-search {
+        display: none;
+        margin-right: 20px;
+        cursor: pointer;
+        @media screen and (max-width: 400px) {
+          margin-right: 10px;
+          img {
+            max-width: 20px;
+          }
+        }
+      }
+      .help {
+        margin-right: 20px;
+        @media screen and (max-width: 400px) {
+          margin-right: 10px;
+          img {
+            max-width: 20px;
+          }
+        }
+      }
+      .user-info {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+        @media screen and (max-width: 400px) {
+          max-width: 100px;
+        }
+        .user-pic {
+          @include flexbox;
+          @include justify-content(space-between);
+          @include align-items(center);
+          margin-right: 10px;
+          @media screen and (max-width: 500px) {
+            margin-top: -2px;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            max-width: 45px;
+            max-height: 45px;
+            border-radius: 50px;
+            object-fit: cover;
+            cursor: pointer;
+            @media screen and (max-width: 500px) {
+              max-width: 25px;
+              max-height: 25px;
+            }
+          }
+        }
+        .user-name-position {
+          .name {
+            //font-size: 16px;
+            font-size: clamp(0.9rem, 0.8vw, 1.2rem);
+            font-weight: 500;
+            color: $dark;
+          }
+        }
+      }
+    }
+  }
+  &.alt-header {
+    .header-wrap {
+      @media screen and (max-width: 800px) {
+        .left {
+          .search-container {
+            display: none;
+          }
+        }
+        .right {
+          .mobile-search {
+            display: block;
+          }
+        }
+      }
+      &.active {
+        display: none;
+      }
+    }
+    .search-container {
+      &.drop {
+        display: none;
+        padding: 25px 20px 13px 20px;
+        animation: 1s fadeIn;
+        @media screen and (max-width: 700px) {
+          padding: 20px 20px 9px 20px;
+        }
+        @media screen and (max-width: 500px) {
+          padding: 14px 20px 0 20px;
+        }
+        &.active {
+          @include flexbox;
+          @include justify-content(space-between);
+          @include align-items(center);
+        }
+        .close-icon {
+          width: 10%;
+          text-align: center;
+          cursor: pointer;
+          img {
+            width: 16px;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}

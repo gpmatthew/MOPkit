@@ -1,0 +1,47 @@
+
+footer {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+  padding: 25px;
+  border-top: 1px solid $gray;
+  @media screen and (max-width: 700px) {
+    @include flex-direction(column);
+  }
+  .left {
+    .logo {
+      img {
+        width: 290px;
+        @media screen and (max-width: 700px) {
+          width: 220px;
+        }
+        @media screen and (max-width: 580px) {
+          width: 160px;
+        }
+      }
+    }
+  }
+  .right {
+    text-align: right;
+    @media screen and (max-width: 700px) {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .credentials {
+      .text {
+        //font-size: 17px;
+        font-size: clamp(0.8rem, 0.88vw, 2.2rem);
+        font-weight: 500;
+        color: $darkGrey2;
+        &.dark {
+          //font-size: 16px;
+          font-size: clamp(0.9rem, 0.8vw, 1.2rem);
+          color: $dark;
+          @media screen and (max-width: 700px) {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}

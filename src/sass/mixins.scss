@@ -1,0 +1,37 @@
+@import 'mixins/flexbox';
+@import 'mixins/animate';
+
+// Buttons mixins
+@mixin button($bg: $primaryBlue, $color: $white, $border : 0, $hover: 'yes', $radius: 10px, $padding: 13px 20px) {
+  font-family: $primaryFont;
+  border-radius: $radius;
+  background: $bg;
+  color: $color;
+  //font-size: 16px;
+  font-size: clamp(0.9rem, 0.8vw, 1.2rem);
+  font-weight: 600;
+  border: $border;
+  padding: $padding;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  outline:none;
+  transition: all 0.5s;
+  @if $hover == 'yes' and $bg != 'transparent' {
+    &:hover {
+      background: darken($bg, 10%); // Darken the background color on hover
+    }
+
+    &:active {
+      background: darken($bg, 20%); // Darken the background color on active state
+    }
+  }
+  @if($bg == 'transparent') {
+    &:hover {
+      color: $primaryBlue; // Darken the background color on hover
+    }
+  }
+}
+
